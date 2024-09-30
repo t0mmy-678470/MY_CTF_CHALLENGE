@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <h1>Welcom!</h1>
+    <h3>hello {{name}}!</h3>
+    <button onclick="go_login()">logout</button>
+    <p>{{flag}}</p>
+    <script>
+        let but = document.querySelector("button")
+        function go_login(){
+            window.location.href = window.location.origin + '/logout'
+        }
+        // console.log(but)
+    </script>
+</body>
+</html>

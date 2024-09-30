@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+</head>
+<body>
+    <div class="container">
+        <h1>SQL Injection Me!</h1>
+        <form action="/login", method="post" onsubmit="return check_input()">
+            <div>
+                <label for="username">username</label>
+                <input id="username" type="text" name="name">
+            </div>
+            <div>
+                <label for="password" >password</label>
+                <input id='password' type="password" name="pwd" oninput="update_pwd()">
+            </div>
+            <div>
+                <input type="submit" value="submit">
+            </div>
+        </form>
+        <div class="tip">you can login with <span>ncu</span>/<span>ncu</span></div>
+        <br><br>
+        <div class="sql-tip">
+            <!-- <p>tip:</p> -->
+            <p>tip: SELECT * FROM users WHERE name='<span id="tip_name"></span>' AND pwd='<span id="tip_pwd"></span>'</p>
+        </div>
+        <div class="response">{{response}}</div>
+    </div>
+    <script>
+        function check_input(){
+            user_name = document.querySelector("#username").value
+            user_pwd = document.querySelector("#password").value
+            if(user_name=='' || user_pwd==''){
+                alert("please input username and passowrd");
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+        document.querySelector("#username").addEventListener("input", update_name)
+        // let tip_name = document.querySelector("#tip_name")
+        // let password = document.querySelector("#password")
+        // password.addEventListener(input, update_pwd)
+        // let tip_pwd = document.querySelector("#tip_pwd")
+        
+        function update_name(){
+            document.querySelector("#tip_name").innerHTML = document.querySelector("#username").value
+        }
+        function update_pwd(){
+            document.querySelector("#tip_pwd").innerHTML = document.querySelector("#password").value
+        }
+    </script>
+</body>
+</html>

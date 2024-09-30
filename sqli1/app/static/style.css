@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgb(173, 209, 226);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+h1 {
+    text-align: center;
+    color: #1877f2;
+    margin-bottom: 1.5rem;
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #606770;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #dddfe2;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #166fe5;
+}
+
+.tip {
+    text-align: center;
+    margin-top: 1rem;
+    color: #606770;
+}
+
+.tip span {
+    font-weight: bold;
+    color: #1877f2;
+}
+
+.sql-tip {
+    margin-top: 1.5rem;
+    background-color: #f0f2f5;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.sql-tip p {
+    margin: 0;
+    color: #606770;
+}
+
+/* .sql-tip span {
+    color: #1877f2;
+    font-family: monospace;
+} */
+
+.response {
+    color: #fa3e3e;
+    text-align: center;
+    margin-top: 1rem;
+}
