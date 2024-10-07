@@ -2,3 +2,4 @@
 sqli1/dbinfo.txt
 */app/__pycache__/
 CTF-flag-generator/
+/test/
