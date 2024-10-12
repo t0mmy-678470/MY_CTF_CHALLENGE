@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+    crypto:
+        build: .
+        # image: ctftraining/qwb_2019_crypto_copperstudy
+        environment:
+            - FLAG=NCtfU{MD5_1s_UN$@fE_ri9HT?}
+        ports:
+            - "10000:10000"
+        restart: always

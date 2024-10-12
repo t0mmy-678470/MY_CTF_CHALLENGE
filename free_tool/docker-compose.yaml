@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+    crypto:
+        build: .
+        environment:
+            - NCtfU{oH_no_yOU_HACKed_my_TooL}
+        ports:
+            - "10004:10004"
+        restart: always

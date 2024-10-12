@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+    crypto:
+        build: .
+        environment:
+            - FLAG=NCtfU{ApP3ND!}
+        ports:
+            - "10002:10002"
+        restart: always
