@@ -9,7 +9,8 @@ def to_blocks(response: bytes):
         blocks.append(response[i:i+16])
     return blocks
 
-con = process(['python3', 'chall.py'])
+# con = process(['python3', 'chall.py'])
+con = remote('140.115.152.10', 10002)
 known = b''
 printable_index = 0
 guess = guess_list[0].encode()

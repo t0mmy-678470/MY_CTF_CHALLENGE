@@ -20,7 +20,8 @@ def turn_payload_bytes(payload: str) -> bytes:
 normal_token = 'test'
 append_token = 'admin=1'
 
-c = process(['python3', 'chall.py'])
+# c = process(['python3', 'chall.py'])
+c = remote('140.115.152.10', 10003)
 c.recvuntil(b'exit\n')
 c.sendline(b'1')
 

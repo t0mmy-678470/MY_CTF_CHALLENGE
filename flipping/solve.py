@@ -16,7 +16,8 @@ def get_guess(i2,known_len):
     return guess
     
 
-con = process(['python3', 'chall.py'])
+# con = process(['python3', 'chall.py'])
+con = remote('140.115.152.10', 10001)
 
 ciphertext = con.recvlines(2)[1].decode()
 c1 = ciphertext[:32]
@@ -35,9 +36,9 @@ while unknown_len > 0:
     if result == b'It\'s valid ciphertext.\n':
         i2 = hex((17-unknown_len) ^ int(guess[unknown_len*2-2:unknown_len*2],16))[2:].zfill(2) + i2
         unknown_len -= 1
-        print(f"corrected guess = {guess}")
+        # print(f"corrected guess = {guess}")
         guess = get_guess(i2, 16-unknown_len)
-        print(f'new guess = {guess}')
+        # print(f'new guess = {guess}')
     elif result == b'Wrong padding.\n':
         if int(guess[unknown_len*2-2:unknown_len*2], 16) == 0xff:
             print('[error] out of range')
@@ -51,7 +52,7 @@ while unknown_len > 0:
         con.interactive()
         break
 
-print(f'i2 = {i2}')
+# print(f'i2 = {i2}')
 # i2 ^ c1
 for i in range(0,len(i2),2):
     print(chr(int(i2[i:i+2],16) ^ int(c1[i:i+2],16)), end="")

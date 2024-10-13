@@ -3,7 +3,7 @@ from Crypto.Util.Padding import pad, unpad
 import os
 
 FLAG = os.getenv("FLAG") # NCtfU{....}
-
+FLAG = "NCtfU{....}"
 print("I made an easy online encryption and decryption tool, \
 but I haven't implement the decryption function yet.")
 
@@ -18,7 +18,11 @@ What do you want to encrypt? (number)
     if cmd == '1':
         key = input("Please input your key in hex: ")
         text = input("Please input your text in hex: ")
+        if len(key) > 32:
+            print('Wrong key length.')
+            continue
         try:
+            key = key.zfill(16)
             key = bytes.fromhex(key)
             text = bytes.fromhex(text)
         except:
@@ -30,6 +34,9 @@ What do you want to encrypt? (number)
 
     elif cmd == '2':
         key = input("Please input your key in hex: ")
+        if len(key) > 32:
+            print('Wrong key length.')
+            continue
         try:
             key = bytes.fromhex(key)
         except:
