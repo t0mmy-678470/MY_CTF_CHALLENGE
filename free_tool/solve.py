@@ -7,7 +7,6 @@ c.recvuntil(b"exit\n")
 c.sendline(b'2') # cmd 2 (example)
 
 c.recvuntil(b"hex: ")
-c.interactive()
 c.sendline(b"00"*8) # input key
 
 c.recvuntil(b'go: ')

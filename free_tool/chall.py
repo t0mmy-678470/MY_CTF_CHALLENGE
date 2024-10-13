@@ -3,7 +3,7 @@ from Crypto.Util.Padding import pad, unpad
 import os
 
 FLAG = os.getenv("FLAG") # NCtfU{....}
-FLAG = "NCtfU{....}"
+
 print("I made an easy online encryption and decryption tool, \
 but I haven't implement the decryption function yet.")
 
