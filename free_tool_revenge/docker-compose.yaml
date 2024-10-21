@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+    crypto:
+        build: .
+        environment:
+            - FLAG=NCtfU{oh_NO_you_h@Ck_My_TooL_@94IN}
+        ports:
+            - "10005:10005"
+        restart: always

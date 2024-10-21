@@ -2,6 +2,7 @@ from Crypto.Cipher import DES
 from Crypto.Util.Padding import pad, unpad
 import os
 
+nonce = os.urandom(7)
 FLAG = os.getenv("FLAG") # NCtfU{....}
 
 print("I made an easy online encryption and decryption tool, \
@@ -22,14 +23,14 @@ What do you want to encrypt? (number)
             print('Wrong key length.')
             continue
         try:
-            key = key.zfill(16)
+            key = key.zfill(8)
             key = bytes.fromhex(key)
             text = bytes.fromhex(text)
         except:
             print("You're key and/or text are/is weird!!")
             continue
 
-        enc = DES.new(key, DES.MODE_ECB).encrypt(text)
+        enc = DES.new(key, DES.MODE_CTR, nonce=nonce).encrypt(text)
         print(f"Here you go: {enc.hex()}")
 
     elif cmd == '2':
@@ -38,13 +39,13 @@ What do you want to encrypt? (number)
             print('Wrong key length.')
             continue
         try:
-            key = key.zfill(16)
+            key = key.zfill(8)
             key = bytes.fromhex(key)
         except:
-            print("You're key is weird!!")
+            print("You're key is weird")
             continue
 
-        enc = DES.new(key, DES.MODE_ECB).encrypt( pad(FLAG.encode(),8) )
+        enc = DES.new(key, DES.MODE_CTR, nonce=nonce).encrypt( pad(FLAG.encode(),8) )
         print(f"Here you go: {enc.hex()}")
     
     elif cmd == '3':
